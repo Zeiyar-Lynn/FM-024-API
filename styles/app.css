@@ -63,7 +63,7 @@ header svg {
   height: 1.7rem;
 }
 
-nav, .menu-bar {
+header .ctr, .menu-bar {
   position: relative;
 }
 
@@ -98,9 +98,90 @@ nav, .menu-bar {
   width: 120%;
 }
 
-header ul {
+nav {
+  opacity: 0;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
   position: absolute;
-  display: none;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  top: 2.5rem;
+  right: 0;
+  width: 100%;
+  padding: 2rem 1.2rem;
+  border-radius: 9px;
+  background-color: var(--d-violet);
+}
+
+nav li {
+  margin-bottom: 1.2rem;
+}
+
+nav li:hover a {
+  cursor: pointer;
+  color: var(--cyan);
+}
+
+nav ul:first-child li:last-child {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray);
+}
+
+nav ul:last-child li:last-child {
+  margin-bottom: 0;
+  padding: 8px 0;
+  border-radius: 1.7rem;
+  background-color: var(--cyan);
+}
+
+nav ul:last-child li:last-child:hover {
+  opacity: .8;
+}
+
+nav ul:last-child li:last-child:hover a {
+  color: #fff;
+}
+
+nav a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.dropped {
+  -webkit-animation: rotateMenu 1s ease-in-out forwards;
+          animation: rotateMenu 1s ease-in-out forwards;
+  opacity: 1;
+}
+
+@-webkit-keyframes rotateMenu {
+  0% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  70% {
+    -webkit-transform: rotateX(20deg);
+            transform: rotateX(20deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes rotateMenu {
+  0% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  70% {
+    -webkit-transform: rotateX(20deg);
+            transform: rotateX(20deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
 }
 
 section:first-child {
@@ -184,10 +265,28 @@ section:first-child p {
   border: none;
 }
 
+.inp-ctr span {
+  display: none;
+}
+
 .inp-ctr button {
   margin-top: 1rem;
   -webkit-transition: 300ms;
   transition: 300ms;
+}
+
+.error {
+  color: red;
+}
+
+.error input {
+  color: inherit;
+  outline: 2px solid;
+}
+
+.error span {
+  font-size: 13px;
+  display: inline;
 }
 
 .shortened-link {
@@ -449,8 +548,8 @@ footer a:hover {
             transform: translateY(-4rem);
   }
   .inp-ctr {
-    background-image: url(../images/bg-shorten-mobile.svg);
-    background-size: auto 80%;
+    background-image: url(../images/bg-shorten-desktop.svg);
+    background-size: 100% auto;
   }
   .inp-ctr input {
     width: 69%;
@@ -509,6 +608,7 @@ footer a:hover {
         -ms-flex-pack: justify;
             justify-content: space-between;
     text-align: left;
+    position: relative;
   }
   .features .small-img {
     padding: 1.3rem;
@@ -517,9 +617,8 @@ footer a:hover {
             transform: translateY(-4.5rem);
   }
   .features .card {
-    background-color: #fff;
-    padding: 2em;
-    border-radius: 5px;
+    position: static;
+    padding-block: 2rem;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -527,25 +626,56 @@ footer a:hover {
             box-sizing: border-box;
     width: 30%;
   }
-  .features .card + .card {
-    margin-top: 5rem;
-  }
   .features .card:nth-of-type(2) {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
   .features .card p {
     padding: 0;
     font-size: 15px;
-    line-height: 1.7;
   }
   .features .card:nth-of-type(n+2)::before {
-    position: absolute;
-    content: '';
-    height: 5rem;
-    width: .4rem;
-    bottom: 100%;
-    left: 49%;
-    background-color: var(--cyan);
+    height: .4rem;
+    width: 5%;
+    top: 45%;
+    left: 32.5%;
+  }
+  .features .card:last-of-type::before {
+    left: 67.5%;
+  }
+  main section:last-of-type {
+    background-image: url(../images/bg-boost-desktop.svg);
+    background-size: 100% 100%;
+  }
+  main section:last-of-type h2 {
+    font-size: 2rem;
+  }
+  footer {
+    padding: 4rem 0;
+  }
+  footer .ctr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  footer section {
+    width: 40%;
+    min-width: 20rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  footer ul {
+    margin-top: 0;
+  }
+  .social-links {
+    width: 20%;
+    margin: 0;
   }
 }
 /*# sourceMappingURL=app.css.map */
